@@ -1,30 +1,31 @@
 // src/pages/PortfolioDetailPage.jsx
 // Pagina che mostra una galleria di immagini con:
 // - slider Swiper in alto
-// - griglia di thumbnail sotto
-// - lightbox a schermo intero quando clicchi una thumbnail
+// - griglia di thumbnail
+// - lightbox a schermo intero con "yet-another-react-lightbox"
 
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { portfolioCategories } from "../content/portfolio.js";
 import { portfolioImages } from "../content/mediaPaths.js";
 
-// Swiper per lo slider
+// Slider Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-// Lightbox
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+// Lightbox compatibile con React 18/19
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 function PortfolioDetailPage() {
   const { slug } = useParams();
+
+  // Trovo la categoria a partire dallo slug
   const category = portfolioCategories.find((cat) => cat.slug === slug);
 
-  // Stato locale per la lightbox:
-  // - isOpen: se la lightbox è aperta
-  // - photoIndex: indice dell'immagine attualmente visibile in lightbox
+  // Stato locale per aprire/chiudere la lightbox
   const [isOpen, setIsOpen] = useState(false);
+  // Indice dell'immagine attualmente selezionata
   const [photoIndex, setPhotoIndex] = useState(0);
 
   if (!category) {
@@ -43,22 +44,12 @@ function PortfolioDetailPage() {
   const images = portfolioImages[category.galleryKey] || [];
 
   const openLightboxAt = (index) => {
-    setPhotoIndex(index);
-    setIsOpen(true);
+    setPhotoIndex(index); // setto l'indice dell'immagine cliccata
+    setIsOpen(true);      // apro la lightbox
   };
 
   const closeLightbox = () => {
     setIsOpen(false);
-  };
-
-  const showNext = () => {
-    setPhotoIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const showPrev = () => {
-    setPhotoIndex((prev) =>
-      (prev + images.length - 1) % images.length
-    );
   };
 
   return (
@@ -72,17 +63,14 @@ function PortfolioDetailPage() {
         {/* Slider principale */}
         {images.length > 0 && (
           <div className="mb-4">
-            <Swiper
-              loop={true}
-              slidesPerView={1}
-              className="portfolio-swiper"
-            >
+            <Swiper loop={true} slidesPerView={1} className="portfolio-swiper">
               {images.map((imgPath, index) => (
                 <SwiperSlide key={imgPath + index}>
                   <div
                     className="ratio ratio-16x9 rounded overflow-hidden shadow-sm portfolio-slide"
-                    onClick={() => openLightboxAt(index)}
                     style={{ cursor: "pointer" }}
+                    // Cliccando sullo slide apro la lightbox a quell'indice
+                    onClick={() => openLightboxAt(index)}
                   >
                     <img
                       src={imgPath}
@@ -97,7 +85,7 @@ function PortfolioDetailPage() {
           </div>
         )}
 
-        {/* Griglia thumbnail */}
+        {/* Griglia di thumbnail */}
         <div className="row g-3">
           {images.length === 0 && (
             <p className="text-muted">
@@ -109,8 +97,8 @@ function PortfolioDetailPage() {
             <div className="col-sm-6 col-md-4" key={imgPath + index}>
               <div
                 className="ratio ratio-4x3 rounded overflow-hidden shadow-sm portfolio-thumb"
-                onClick={() => openLightboxAt(index)}
                 style={{ cursor: "pointer" }}
+                onClick={() => openLightboxAt(index)}
               >
                 <img
                   src={imgPath}
@@ -124,17 +112,20 @@ function PortfolioDetailPage() {
         </div>
       </div>
 
-      {/* Lightbox a schermo intero */}
+      {/* Lightbox */}
       {isOpen && images.length > 0 && (
         <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={
-            images[(photoIndex + images.length - 1) % images.length]
-          }
-          onCloseRequest={closeLightbox}
-          onMovePrevRequest={showPrev}
-          onMoveNextRequest={showNext}
+          // open/close controllati da stato React
+          open={isOpen}
+          close={closeLightbox}
+          // slides è un array di oggetti { src: "path/dell/immagine" }
+          slides={images.map((src) => ({ src }))}
+          // index è l'immagine attualmente attiva
+          index={photoIndex}
+          // on.view viene chiamato quando l'utente cambia slide (freccia, swipe, ecc.)
+          on={{
+            view: ({ index }) => setPhotoIndex(index),
+          }}
         />
       )}
     </section>
