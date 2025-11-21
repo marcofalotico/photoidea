@@ -9,6 +9,7 @@ import { heroImages } from "../content/mediaPaths.js";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 // Import CSS base di Swiper
 import "swiper/css";
@@ -19,29 +20,30 @@ function HomeHero() {
   return (
     <section className="hero-section position-relative">
       {/* Slider a piena larghezza/altezza */}
-      <Swiper
-        className="hero-swiper"
-        // props base: loop infinito e autoplay semplice (in futuro possiamo raffinarlI)
+    <Swiper
+        modules={[Autoplay]}                  // ← importante
         loop={true}
         autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
+            delay: 3000,
+            disableOnInteraction: false,
         }}
-        // slidesPerView = 1: una slide per volta
         slidesPerView={1}
-      >
+        spaceBetween={0}
+        className="hero-swiper"
+        >
         {heroImages.homeWeddingSlider.map((imgPath, index) => (
-          <SwiperSlide key={imgPath + index}>
+            <SwiperSlide key={imgPath + index}>
             <div className="hero-slide">
-              <img
+                <img
                 src={imgPath}
                 alt={`Foto hero ${index + 1}`}
                 className="hero-image"
-              />
+                />
             </div>
-          </SwiperSlide>
+            </SwiperSlide>
         ))}
-      </Swiper>
+    </Swiper>
+
 
       {/* Overlay con testo centro pagina */}
       <div className="hero-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">

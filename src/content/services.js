@@ -17,7 +17,7 @@ export const services = [
     fullDescription: `
       TODO: testo completo della pagina Matrimonio. 
     `,
-    heroImage: "images/services/matrimonio/hero-matrimonio-001.jpg",
+    heroImage: "/images/services/matrimonio/hero-matrimonio-001.jpg",
     galleryKey: "weddingMain",
   },
   {
@@ -30,7 +30,7 @@ export const services = [
     fullDescription: `
       TODO: testo completo pagina Maternità.
     `,
-    heroImage: "images/services/maternita/hero-maternita-001.jpg",
+    heroImage: "/images/services/maternita/hero-maternita-001.jpg",
     galleryKey: "maternityMain",
   },
   {
@@ -43,7 +43,7 @@ export const services = [
     fullDescription: `
       TODO: testo completo pagina Bambini & Smash Cake.
     `,
-    heroImage: "images/services/bambini-smashcake/hero-bambini-001.jpg",
+    heroImage: "/images/services/bambini-smashcake/hero-bambini-001.jpg",
     galleryKey: "kidsSmashCake",
   },
   {
@@ -56,7 +56,7 @@ export const services = [
     fullDescription: `
       TODO: testo completo pagina Battesimo.
     `,
-    heroImage: "images/services/battesimo/hero-battesimo-001.jpg",
+    heroImage: "/images/services/battesimo/hero-battesimo-001.jpg",
     galleryKey: "baptismMain",
   },
   {
@@ -69,7 +69,7 @@ export const services = [
     fullDescription: `
       TODO: testo completo pagina Video nozze & drone.
     `,
-    heroImage: "images/services/video-nozze-drone/hero-video-nozze-001.jpg",
+    heroImage: "/images/services/video-nozze-drone/hero-video-nozze-001.jpg",
     galleryKey: "weddingVideo",
   },
   {
@@ -82,7 +82,7 @@ export const services = [
     fullDescription: `
       TODO: testo completo pagina Video aziendale & drone.
     `,
-    heroImage: "images/services/video-aziendale-drone/hero-video-aziendale-001.jpg",
+    heroImage: "/images/services/video-aziendale-drone/hero-video-aziendale-001.jpg",
     galleryKey: "corporateVideo",
   },
 ];
