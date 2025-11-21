@@ -1,53 +1,66 @@
 // src/components/HomeHero.jsx
-// Questo componente rappresenta la HERO della home:
-// - mostra un'immagine principale (per ora una sola, non slider)
-// - mostra titolo e sottotitolo dello studio
-// - mostra un bottone "Chiedi informazioni"
+// Hero full-width con slider di immagini usando Swiper.
+// L'overlay centrale contiene titolo, sottotitolo e bottone CTA.
 
-import React from "react"; // import di React necessario per definire componenti funzione
-import { Link } from "react-router-dom"; // Link di React Router per navigazione interna
-import { studioHero } from "../content/studioInfo.js"; // dati testuali per la hero
-import { heroImages } from "../content/mediaPaths.js"; // path immagine/i hero
+import React from "react";
+import { Link } from "react-router-dom";
+import { studioHero } from "../content/studioInfo.js";
+import { heroImages } from "../content/mediaPaths.js";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import CSS base di Swiper
+import "swiper/css";
+
+// (In futuro possiamo importare effetti aggiuntivi, frecce, pagination, ecc.)
 
 function HomeHero() {
-  // [Concetto React] Un componente funzione è una normale funzione JS che:
-  // - può ricevere props (qui non le usiamo)
-  // - restituisce JSX (la UI da mostrare)
-  const mainHeroImage = heroImages.homeWeddingSlider[0]; // prendo la prima immagine dallo slider
-
   return (
-    <section className="bg-light py-5 border-bottom">
-      <div className="container">
-        <div className="row align-items-center">
-          {/* Colonna testo */}
-          <div className="col-md-6">
-            {/* Title e subtitle presi dal file di contenuto */}
-            <h1 className="display-5 fw-bold mb-3">{studioHero.title}</h1>
-            <p className="lead mb-3">{studioHero.subtitle}</p>
-            <p className="mb-4">{studioHero.introText}</p>
-
-            {/* Link a /contatti come call-to-action */}
-            <Link className="btn btn-dark btn-lg" to="/contatti">
-              Chiedi informazioni
-            </Link>
-          </div>
-
-          {/* Colonna immagine */}
-          <div className="col-md-6 mt-4 mt-md-0">
-            {/* Per ora immagine statica, poi potremo sostituire con slider */}
-            <div className="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+    <section className="hero-section position-relative">
+      {/* Slider a piena larghezza/altezza */}
+      <Swiper
+        className="hero-swiper"
+        // props base: loop infinito e autoplay semplice (in futuro possiamo raffinarlI)
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        // slidesPerView = 1: una slide per volta
+        slidesPerView={1}
+      >
+        {heroImages.homeWeddingSlider.map((imgPath, index) => (
+          <SwiperSlide key={imgPath + index}>
+            <div className="hero-slide">
               <img
-                src={mainHeroImage}
-                alt="Foto di matrimonio - Hero"
-                className="w-100 h-100"
-                style={{ objectFit: "cover" }}
+                src={imgPath}
+                alt={`Foto hero ${index + 1}`}
+                className="hero-image"
               />
             </div>
-          </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Overlay con testo centro pagina */}
+      <div className="hero-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">
+        <div className="hero-text">
+          {/* Titolo grande come nello screenshot */}
+          <h1 className="hero-title">
+            {/* Puoi personalizzare questo testo per avvicinarti allo stile originale */}
+            Catturiamo i Ricordi
+          </h1>
+          <p className="hero-subtitle">
+            i momenti che contano sono quelli vissuti con amore
+          </p>
+          <Link to="/contatti" className="btn btn-hero-cta mt-3">
+            CHIEDI INFORMAZIONI
+          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-export default HomeHero; // export default per usare <HomeHero /> in altri file
+export default HomeHero;

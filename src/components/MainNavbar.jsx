@@ -38,6 +38,12 @@ function MainNavbar() {
             </li>
 
             <li className="nav-item">
+                <NavLink className="nav-link" to="/galleria-clienti">
+                    Galleria clienti
+                </NavLink>
+            </li>
+
+            <li className="nav-item">
               <NavLink className="nav-link" to="/portfolio">
                 Portfolio
               </NavLink>

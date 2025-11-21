@@ -1,22 +1,33 @@
 // src/pages/PortfolioDetailPage.jsx
-// Pagina che mostra una galleria di immagini per una categoria di portfolio.
-// - Legge :slug dall'URL (useParams)
-// - Trova la categoria nell'array portfolioCategories
-// - Usa mediaPaths.portfolioImages[galleryKey] per le immagini
+// Pagina che mostra una galleria di immagini con:
+// - slider Swiper in alto
+// - griglia di thumbnail sotto
+// - lightbox a schermo intero quando clicchi una thumbnail
 
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { portfolioCategories } from "../content/portfolio.js";
 import { portfolioImages } from "../content/mediaPaths.js";
 
-function PortfolioDetailPage() {
-  const { slug } = useParams(); // leggo lo slug dalla rotta "/portfolio/:slug"
+// Swiper per lo slider
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
-  // Trovo la categoria che ha slug uguale al parametro
+// Lightbox
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+
+function PortfolioDetailPage() {
+  const { slug } = useParams();
   const category = portfolioCategories.find((cat) => cat.slug === slug);
 
+  // Stato locale per la lightbox:
+  // - isOpen: se la lightbox è aperta
+  // - photoIndex: indice dell'immagine attualmente visibile in lightbox
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+
   if (!category) {
-    // Caso categoria non trovata
     return (
       <section className="py-5">
         <div className="container">
@@ -29,18 +40,64 @@ function PortfolioDetailPage() {
     );
   }
 
-  // Recupero le immagini associate a questa categoria tramite galleryKey
   const images = portfolioImages[category.galleryKey] || [];
+
+  const openLightboxAt = (index) => {
+    setPhotoIndex(index);
+    setIsOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsOpen(false);
+  };
+
+  const showNext = () => {
+    setPhotoIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const showPrev = () => {
+    setPhotoIndex((prev) =>
+      (prev + images.length - 1) % images.length
+    );
+  };
 
   return (
     <section className="py-5">
       <div className="container">
-        <header className="mb-4">
+        <header className="mb-4 text-center">
           <h1 className="fw-bold">{category.menuLabel}</h1>
           <p className="text-muted">{category.description}</p>
         </header>
 
-        {/* Griglia di immagini semplice (3 per riga su desktop) */}
+        {/* Slider principale */}
+        {images.length > 0 && (
+          <div className="mb-4">
+            <Swiper
+              loop={true}
+              slidesPerView={1}
+              className="portfolio-swiper"
+            >
+              {images.map((imgPath, index) => (
+                <SwiperSlide key={imgPath + index}>
+                  <div
+                    className="ratio ratio-16x9 rounded overflow-hidden shadow-sm portfolio-slide"
+                    onClick={() => openLightboxAt(index)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img
+                      src={imgPath}
+                      alt={`${category.menuLabel} ${index + 1}`}
+                      className="w-100 h-100"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )}
+
+        {/* Griglia thumbnail */}
         <div className="row g-3">
           {images.length === 0 && (
             <p className="text-muted">
@@ -50,7 +107,11 @@ function PortfolioDetailPage() {
 
           {images.map((imgPath, index) => (
             <div className="col-sm-6 col-md-4" key={imgPath + index}>
-              <div className="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+              <div
+                className="ratio ratio-4x3 rounded overflow-hidden shadow-sm portfolio-thumb"
+                onClick={() => openLightboxAt(index)}
+                style={{ cursor: "pointer" }}
+              >
                 <img
                   src={imgPath}
                   alt={`${category.menuLabel} ${index + 1}`}
@@ -62,6 +123,20 @@ function PortfolioDetailPage() {
           ))}
         </div>
       </div>
+
+      {/* Lightbox a schermo intero */}
+      {isOpen && images.length > 0 && (
+        <Lightbox
+          mainSrc={images[photoIndex]}
+          nextSrc={images[(photoIndex + 1) % images.length]}
+          prevSrc={
+            images[(photoIndex + images.length - 1) % images.length]
+          }
+          onCloseRequest={closeLightbox}
+          onMovePrevRequest={showPrev}
+          onMoveNextRequest={showNext}
+        />
+      )}
     </section>
   );
 }

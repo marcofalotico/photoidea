@@ -9,12 +9,11 @@ import { useSelector } from "react-redux"; // hook di React Redux per leggere da
 import { services } from "../content/services.js";
 
 function ServicesPage() {
-  // [Redux] useSelector permette al componente di "abbonarsi" allo store.
-  // Passiamo una funzione che riceve lo stato completo e restituisce la parte che ci interessa.
-  // In questo caso vogliamo sapere quale servizio è selezionato.
-  const selectedServiceId = useSelector(
-    (state) => state.selectedServiceId // deve corrispondere alla chiave nello stato iniziale del reducer
-  );
+
+    // Lo stato ora è strutturato come { ui: {...}, gallery: {...} }
+    const selectedServiceId = useSelector(
+    (state) => state.ui.selectedServiceId
+    );
 
   return (
     <section className="py-5">

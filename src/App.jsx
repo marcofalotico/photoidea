@@ -21,10 +21,12 @@ import PortfolioDetailPage from "./pages/PortfolioDetailPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
+import ProtectedGalleryPage from "./pages/ProtectedGalleryPage.jsx";
 
 // Navbar e Footer come componenti riutilizzabili.
 import MainNavbar from "./components/MainNavbar.jsx";
 import MainFooter from "./components/MainFooter.jsx";
+
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
             <Route path="/servizi/:slug" element={<ServiceDetailPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/portfolio/:slug" element={<PortfolioDetailPage />} />
+            <Route path="/galleria-clienti" element={<ProtectedGalleryPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contatti" element={<ContactPage />} />

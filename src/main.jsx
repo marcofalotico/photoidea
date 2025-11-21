@@ -8,6 +8,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+import "./index.css";
 
 // Import del CSS di Bootstrap: così tutte le classi .container, .row, .col-* ecc. sono disponibili nei componenti React.
 import "bootstrap/dist/css/bootstrap.min.css";
