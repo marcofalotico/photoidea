@@ -74,7 +74,8 @@ export const services = [
 
     // 6. Pacchetti / promozioni per il servizio Matrimonio.
     // Questi dati verranno mostrati come card.
-    packages: [
+    packages: [],
+    pricingPackages: [
       {
         id: "matrimonio-basic",
         name: "Matrimonio Classic",
@@ -219,6 +220,7 @@ export const services = [
       prefillSubject: "Richiesta informazioni servizio Maternità",
     },
     packages: [],
+    pricingPackages: [],
     limitedOffer: {
       enabled: false,
     },
@@ -261,6 +263,7 @@ export const services = [
       prefillSubject: "Richiesta informazioni servizio Bambini & Smash Cake",
     },
     packages: [],
+    pricingPackages: [],
     limitedOffer: { enabled: false },
     instagram: {
       username: "photoidea.torino.newborn",
@@ -301,6 +304,7 @@ export const services = [
       prefillSubject: "Richiesta informazioni servizio Battesimo",
     },
     packages: [],
+    pricingPackages: [],
     limitedOffer: { enabled: false },
     instagram: null,
     portfolioLink: {
@@ -337,6 +341,7 @@ export const services = [
       prefillSubject: "Richiesta informazioni servizio Video nozze & drone",
     },
     packages: [],
+    pricingPackages: [],
     limitedOffer: { enabled: false },
     instagram: null,
     portfolioLink: {
@@ -374,6 +379,7 @@ export const services = [
       prefillSubject: "Richiesta informazioni servizio Video aziendale & drone",
     },
     packages: [],
+    pricingPackages: [],
     limitedOffer: { enabled: false },
     instagram: null,
     portfolioLink: {

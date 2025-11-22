@@ -203,6 +203,54 @@ section:nth-of-type(odd) {
   color: var(--pi-accent);
 }
 
+/* ===========================
+   Pricing cards (Bootstrap only)
+   =========================== */
+
+.pricing-card {
+  border-radius: 10px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--pi-accent, #f0a144);
+}
+
+.pricing-card-highlighted {
+  border: 2px solid var(--pi-accent, #f0a144);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card-highlighted .pricing-title {
+  color: var(--pi-accent-dark, #e08a2c);
+}
+
+.pricing-title {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: #666666;
+}
+
+.pricing-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222222;
+}
+
+/* un filo di spazio tra lista e bottone su schermi piccoli */
+@media (max-width: 575.98px) {
+  .pricing-card {
+    margin-inline: 0.25rem;
+  }
+}
+
+
 /* ---------------------------
    Responsive tweak per mobile
    --------------------------- */

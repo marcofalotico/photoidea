@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { services } from "../content/services.js";
 import { blogPosts } from "../content/blogPosts.js";
 import { setContactService } from "../redux/actions.js";
+import ServicePricingSection from "../components/ServicePricingSection.jsx";
 
 // Swiper per gallerie immagini
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -74,8 +75,24 @@ function ServiceDetailPage() {
     : [];
 
   // Pacchetti / promozioni (punto 6)
+  /* const hasPackages =
+    Array.isArray(service.packages) && service.packages.length > 0; */
   const hasPackages =
-    Array.isArray(service.packages) && service.packages.length > 0;
+    Array.isArray(service.pricingPackages) &&
+    service.pricingPackages.length > 0;
+
+  // Quando l'utente clicca "Info" su un pacchetto,
+  // costruiamo un subject più specifico e riusiamo handleContactClick.
+  const handlePackageSelect = (pkg) => {
+    if (!service || !pkg) return;
+
+    const subject =
+      pkg.ctaSubject ||
+      `Richiesta informazioni: ${service.menuLabel} – Pacchetto ${pkg.name}`;
+
+    handleContactClick(subject);
+  };
+
 
   // Offerta limitata (punto 7)
   const limitedOfferEnabled = service.limitedOffer?.enabled;
@@ -223,7 +240,7 @@ function ServiceDetailPage() {
         {/* ==========================
             6. Pacchetti / promozioni (card)
            ========================== */}
-        {hasPackages && (
+        {/* {hasPackages && (
           <section className="mb-5">
             <h2 className="h4 fw-bold mb-3">
               Pacchetti {service.menuLabel}
@@ -245,7 +262,6 @@ function ServiceDetailPage() {
                         </p>
                       )}
 
-                      {/* Elenco punti del pacchetto */}
                       {Array.isArray(pkg.features) &&
                         pkg.features.length > 0 && (
                           <ul className="small text-muted mb-3">
@@ -275,7 +291,20 @@ function ServiceDetailPage() {
               ))}
             </div>
           </section>
+        )} */}
+
+        {/* ==========================
+        6. Pacchetti / promozioni (pricing table con react-pricing-table )
+          ========================== */}
+        {hasPackages && (
+          <section className="mb-5">
+            <ServicePricingSection
+              service={service}
+              onSelectPackage={handlePackageSelect}
+            />
+          </section>
         )}
+
 
         {/* ==========================
             7. Banner offerta limitata
