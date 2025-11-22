@@ -11,10 +11,12 @@ function MainNavbar() {
       <div className="container">
         {/* Link al path "/" che funge da logo/testo brand */}
         <Link className="navbar-brand fw-bold" to="/">
-          PhotoIdea
+          <img src="/images/logo/logo.webp" alt="logo-photoidea" />
         </Link>
 
         {/* Bottone hamburger per mobile */}
+        {/* Gli attributi data-bs-* dicono a Bootstrap di usare il plugin "Collapse"
+            per mostrare/nascondere il blocco con id="mainNavbar". */}
         <button
           className="navbar-toggler"
           type="button"
@@ -55,11 +57,11 @@ function MainNavbar() {
               </NavLink>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="/contatti">
                 Contatti
               </NavLink>
-            </li>
+            </li> */}
           </ul>
 
           {/* CTA per "Chiedi informazioni" stile bottone */}

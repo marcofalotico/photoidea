@@ -12,6 +12,8 @@ import "./index.css";
 
 // Import del CSS di Bootstrap: così tutte le classi .container, .row, .col-* ecc. sono disponibili nei componenti React.
 import "bootstrap/dist/css/bootstrap.min.css";
+// JS di Bootstrap (bundle con Popper + plugin come Collapse, Dropdown, ecc.)
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 // Provider viene da react-redux e serve a "collegare" lo store Redux all'app React, in modo che i componenti possano usare useSelector/useDispatch.
 import { Provider } from "react-redux";

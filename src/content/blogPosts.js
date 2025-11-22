@@ -11,12 +11,14 @@ export const blogPosts = [
     slug: "matrimonio-rossella-simone-tenuta-carretta-piobesi-alba",
     date: "2024-09-21",
     category: "Matrimonio",
-    coverImage: "images/blog/rossella-simone-tenuta-carretta-cover.jpg",
+    coverImage: "//images/blog/rossella-simone-tenuta-carretta-cover.webp",
     excerpt: `
-      TODO: scrivi tu un breve riassunto del servizio.
+      Domenica scorsa ho avuto il piacere di fotografare il matrimonio di Rossella e Simone, una giornata indimenticabile che si è svolta nella splendida cornice della Tenuta Carretta, a Piobesi d’Alba, in provincia di Cuneo.
     `,
     content: `
-      TODO: qui va il testo completo dell’articolo.
+      Domenica scorsa ho avuto il piacere di fotografare il matrimonio di Rossella e Simone, una giornata indimenticabile che si è svolta nella splendida cornice della Tenuta Carretta, a Piobesi d’Alba, in provincia di Cuneo. La location, immersa tra i vigneti delle dolci colline piemontesi, ha regalato un’atmosfera magica, resa ancor più speciale dalla luce del sole.
+
+Dalla cerimonia emozionante all’aperto, al rinfresco elegante e ai balli sfrenati che hanno chiuso la serata, ogni dettaglio è stato perfetto. Qui sotto trovate alcuni scatti che catturano i momenti più belli di questa giornata speciale, dai sorrisi degli sposi agli abbracci degli amici e parenti.
     `,
   },
   {
@@ -26,7 +28,7 @@ export const blogPosts = [
     slug: "matrimonio-elisa-alessandro-podere-la-piazza",
     date: "2024-03-01",
     category: "Matrimonio",
-    coverImage: "images/blog/elisa-alessandro-podere-la-piazza-cover.jpg",
+    coverImage: "/images/blog/elisa-alessandro-podere-la-piazza-cover.jpg",
     excerpt: `
       TODO: scrivi tu il riassunto del post.
     `,
@@ -41,7 +43,7 @@ export const blogPosts = [
     slug: "matrimonio-accademia-scienze-dolce-stil-novo-venaria",
     date: "2023-07-28",
     category: "Matrimonio",
-    coverImage: "images/blog/accademia-scienze-dolce-stil-novo-cover.jpg",
+    coverImage: "/images/blog/accademia-scienze-dolce-stil-novo-cover.jpg",
     excerpt: `
       TODO: scrivi un estratto che riassuma location, atmosfera, stile fotografico.
     `,
