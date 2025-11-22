@@ -108,7 +108,7 @@ section:nth-of-type(odd) {
 /* Contenitore principale della hero */
 .hero-section {
   position: relative;
-  min-height: 80vh; /* hero alta almeno 80% viewport */
+  min-height: 70vh;
   color: #fff;
   overflow: hidden;
 }

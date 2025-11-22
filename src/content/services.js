@@ -12,10 +12,15 @@ export const services = [
     menuLabel: "Matrimonio",
     slug: "matrimonio", // <= SOLO la parte finale dell'URL
     shortDescription: `
-      TODO: descrizione breve del servizio matrimonio (2–3 righe).
+      Benvenuti nel nostro mondo di fotografia matrimoniale, dove ogni scatto racconta la vostra storia d’amore in modo autentico e spontaneo.
     `,
-    fullDescription: `
-      TODO: testo completo della pagina Matrimonio. 
+    fullDescription: `Per noi, la fotografia di matrimonio è molto più di semplici immagini. È un racconto affettuoso, un reportage che cattura le emozioni e i momenti speciali del vostro giorno più importante.
+
+Dalla preparazione al ricevimento, ci impegniamo a catturare ogni dettaglio senza interferire con il flusso naturale degli eventi. Con la presenza di due fotografi professionisti inclusi nel servizio, garantiamo una copertura completa e senza interruzioni.
+
+Offriamo flessibilità con una vasta gamma di opzioni, dalle immagini ad alta risoluzione alla creazione di fotolibri stampati di alta qualità. Il vostro matrimonio è unico, e vogliamo che le vostre fotografie lo riflettano pienamente.
+
+Siamo qui per ascoltare le vostre idee, i vostri desideri e trasformarli in ricordi tangibili che dureranno per sempre. 
     `,
     heroImage: "/images/services/matrimonio/hero-matrimonio-001.jpg",
     galleryKey: "weddingMain",
