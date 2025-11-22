@@ -108,20 +108,23 @@ section:nth-of-type(odd) {
 /* Contenitore principale della hero */
 .hero-section {
   position: relative;
-  min-height: 70vh;
+  height: 90vh;
   color: #fff;
   overflow: hidden;
 }
 
-/* Lo slider deve occupare tutta l'altezza disponibile della hero */
-.hero-swiper {
+/* Swiper deve occupare tutta l'altezza della hero */
+.hero-section .swiper,
+.hero-section .swiper-wrapper,
+.hero-section .swiper-slide {
   height: 100%;
 }
 
-/* Ogni slide occupa tutta l'altezza della hero */
+/* Il nostro wrapper custom dentro la slide */
 .hero-slide {
   height: 100%;
 }
+
 
 /* L'immagine riempie completamente lo spazio e viene tagliata (crop) */
 .hero-image {
@@ -205,7 +208,7 @@ section:nth-of-type(odd) {
    --------------------------- */
 @media (max-width: 767.98px) {
   .hero-section {
-    min-height: 70vh; /* un po' più alta su mobile */
+    height: 70vh; /* un po' più alta su mobile */
   }
 
   .hero-text {
