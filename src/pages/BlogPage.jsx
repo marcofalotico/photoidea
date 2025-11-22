@@ -24,7 +24,7 @@ function BlogPage() {
 
         <div className="row g-4">
           {sortedPosts.map((post) => (
-            <div className="col-md-4" key={post.id}>
+            <div className="col-md-4" key={post.slug}>
               <div className="card h-100">
                 <div className="ratio ratio-4x3">
                   <img
