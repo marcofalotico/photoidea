@@ -151,12 +151,17 @@ export const services = [
 
     // 10. Sezione fotolibri per il servizio selezionato
     photobook: {
-      title: "Fotolibro Matrimonio",
-      subtitle: "Un album pensato per custodire il vostro racconto",
+      title: "FOTOLIBRO NOZZE E IMPAGINAZIONE GRAFICA",
+      subtitle: "Album - Copertine - Contenitori - Wood Box",
       description: `
-        Progettiamo insieme a voi il fotolibro del matrimonio, curando layout,
-        scelta delle immagini e materiali di copertina. Ogni album è unico
-        e viene stampato su carte di alta qualità.
+Creare è sempre stata la mia passione. Mi piace definirmi artigiana dell’immagine perché oltre a fotografare la realtà, curo personalmente l’impaginazione delle fotografie in un elegante fotolibro rispettando le aspettative dei miei clienti.
+
+Per la stampa dei fotolibri mi affido a laboratori professionali e ad artigiani del settore che mi garantiscono sia qualità di stampa che rilegature sempre perfette.
+Ogni modello di fotolibro viene realizzato con materiali pregiati, con copertine personalizzate su tela o con inserti in plexiglass o in metallo.
+
+E’ importante attribuire ad ogni album l’unicità ed il carattere che merita, per questo non esitare a chiedermi l’impossibile e cercherò di realizzarlo.
+
+Ho a disposizione una collezione esclusiva di album, copertine, cofanetti e contenitori completamente personalizzabili sia nei colori che nei materiali:
       `,
       images: [
         "/images/services/matrimonio/album-matrimonio-001.webp",
@@ -200,16 +205,26 @@ export const services = [
     slug: "maternita",
     seoSubtitle:
       "Servizi fotografici maternità in studio e in esterna a Torino.",
-    shortDescription: `
-      TODO: descrizione breve del servizio maternità.
+    shortDescription: `Benvenuta nel mondo della maternità, un viaggio straordinario fatto di emozioni, trasformazioni e amore incondizionato.
     `,
-    fullDescription: `
-      TODO: testo completo pagina Maternità.
+    fullDescription: `Desideriamo catturare la bellezza e la forza di questo momento così speciale attraverso il nostro servizio fotografico di maternità. Vogliamo farti sentire radiosa, piena di vita e di speranza, mentre il tuo corpo porta il dono più grande.
+
+Il nostro obiettivo è trasformare la tua sessione fotografica in un’esperienza indimenticabile, un momento di condivisione e di celebrazione della tua femminilità e della tua maternità.
+
+La gravidanza non è solo un momento di attesa, ma un capitolo unico e meraviglioso della tua vita e di chi ti circonda.
+
+Nel nostro studio fotografico, avrai a disposizione una vasta selezione di luci, fondali, stole e abiti per scegliere quello che meglio esprime la tua bellezza e la tua personalità.
+
+Dalla preparazione dei set agli scatti finali, lavoreremo insieme per creare ricordi che dureranno per sempre, stampati su pregiati fotolibri o conservati come file ad alta risoluzione.
+
+Invitiamo te, il tuo compagno e la tua famiglia a partecipare a questa esperienza unica, in cui ogni sorriso, ogni carezza e ogni sguardo saranno immortalati con amore e dedizione.
     `,
-    heroImage: "/images/services/maternita/hero-maternita-001.jpg",
+    heroImage: "/images/services/maternita/hero-maternita-001.webp",
     galleryKey: "maternityMain",
     serviceGalleryImages: [
-      "/images/services/maternita/hero-maternita-001.jpg",
+      "/images/services/maternita/maternita-001.webp",
+      "/images/services/maternita/maternita-002.webp",
+      "/images/services/maternita/maternita-003.webp",
       // aggiungi altre immagini quando le hai
     ],
     ctaConfig: {
@@ -220,7 +235,62 @@ export const services = [
       prefillSubject: "Richiesta informazioni servizio Maternità",
     },
     packages: [],
-    pricingPackages: [],
+    pricingPackages: [
+      {
+        id: "maternita-standard",
+        name: "Maternità",
+        priceLabel: "a partire da 280 €",
+        shortDescription:
+          "",
+        features: [
+          "n. 1/2 Ore di sessione",
+          "n. 1/2 Sfondo a scelta",
+          "n. 1/2 Cambio d’abito",
+          "Foto Mum&Dad",
+          "Galleria provini online",
+          "n. 10 stampe 15×22",
+          "n. 10 File Hi Res."
+        ],
+        ctaLabel: "Info pacchetto Maternità",
+        ctaSubject: "Info pacchetto Maternità",
+      },
+      {
+        id: "maternita-lux",
+        name: "Maternità Lux",
+        priceLabel: "a partire da 380 €",
+        shortDescription:
+          "",
+        features: [
+          "n. 2/3 Ore di sessione",
+          "n. 2/3 Sfondo a scelta",
+          "n. 2/3 Cambio d’abito",
+          "Foto Mum&Dad",
+          "Galleria provini online",
+          "n. 15 stampe 15×22",
+          "n. 15 File Hi Res."
+        ],
+        ctaLabel: "Info pacchetto Maternità Lux",
+        ctaSubject: "Info pacchetto Maternità Lux",
+      },
+      {
+        id: "neonato",
+        name: "Neonato",
+        priceLabel: "a partire da 380 €",
+        shortDescription:
+          "",
+        features: [
+          "n. 2/3 Ore di sessione",
+          "n. n. 2/3 Set a scelta",
+          "n. 2/3 Cambi outfit/set",
+          "Foto Mum&Dad",
+          "Galleria provini online",
+          "n. 10 stampe 15×22",
+          "n. 10 File Hi Res."
+        ],
+        ctaLabel: "Info pacchetto Neonato",
+        ctaSubject: "Info pacchetto Neonato",
+      },
+    ],
     limitedOffer: {
       enabled: false,
     },

@@ -29,7 +29,7 @@ function ServicePricingSection({ service, onSelectPackage }) {
             Pacchetti {service.menuLabel}
           </h2>
           <p className="text-muted mb-0">
-            Scegli la formula che meglio si adatta al tuo{" "}
+            Scegli la formula che meglio si adatta al tuo servizio{" "}
             {service.menuLabel.toLowerCase()}.
           </p>
         </div>

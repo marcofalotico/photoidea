@@ -85,6 +85,15 @@ function BlogPostPage() {
             />
           </div>
 
+          {/* Testo articolo.
+              Per ora usiamo un semplice <p>; in futuro potremo
+              spezzare la stringa in paragrafi o usare un parser markdown. */}
+          <div className="mb-5">
+            <p className="text-muted" style={{ whiteSpace: "pre-line" }}>
+              {post.content}
+            </p>
+          </div>
+
           {/* Carosello aggiuntivo di immagini, se galleryImages ha elementi */}
           {galleryImages.length > 0 && (
             <div className="mb-4">
@@ -111,15 +120,6 @@ function BlogPostPage() {
               </Swiper>
             </div>
           )}
-
-          {/* Testo articolo.
-              Per ora usiamo un semplice <p>; in futuro potremo
-              spezzare la stringa in paragrafi o usare un parser markdown. */}
-          <div className="mb-5">
-            <p className="text-muted" style={{ whiteSpace: "pre-line" }}>
-              {post.content}
-            </p>
-          </div>
         </article>
       </div>
     </section>

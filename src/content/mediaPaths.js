@@ -36,6 +36,12 @@ export const portfolioImages = {
   corporateMain: [
     "/images/portfolio/corporate/corporate-evento-aziendale-001.jpg",
   ],
+
+  // Prematrimoniale
+  weddingEngagement: [
+    "/images/portfolio/prematrimoniale/engagement-001.webp",
+    "/images/portfolio/prematrimoniale/engagement-002.webp",
+  ],
 };
 
 export const studioImages = {

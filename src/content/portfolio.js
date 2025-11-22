@@ -10,18 +10,14 @@ export const portfolioCategories = [
     menuLabel: "Foto prematrimoniale",
     slug: "foto-prematrimoniale",
     galleryKey: "weddingEngagement",
-    description: `
-      TODO: breve testo introduttivo per la pagina foto prematrimoniale.
-    `,
+    description: `Il portfolio delle foto prematrimoniali cattura l'amore e la complicità della coppia in un contesto naturale e rilassato, creando ricordi autentici prima del grande giorno.`,
   },
   {
     id: "foto-matrimonio",
     menuLabel: "Foto matrimonio",
     slug: "foto-matrimonio",
     galleryKey: "weddingMain",
-    description: `
-      TODO: breve testo introduttivo per la pagina foto matrimonio.
-    `,
+    description: `Il portfolio delle foto di matrimonio racconta la storia unica di ogni coppia, catturando i momenti più emozionanti e i dettagli speciali del loro giorno indimenticabile.`,
   },
   {
     id: "foto-maternita",

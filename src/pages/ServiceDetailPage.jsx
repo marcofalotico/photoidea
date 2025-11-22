@@ -137,7 +137,7 @@ function ServiceDetailPage() {
             )}
 
             {/* 5. Call to action principale */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <button
                 type="button"
                 className="btn btn-dark"
@@ -145,7 +145,20 @@ function ServiceDetailPage() {
               >
                 Chiedi informazioni su {service.menuLabel}
               </button>
-            </div>
+            </div> */}
+            {/* ==========================
+            9. Pulsante verso Portfolio
+              ========================== */}
+            {service.portfolioLink && (
+              <section className="mb-5 text-center">
+                <Link
+                  to={service.portfolioLink.url}
+                  className="btn btn-outline-dark"
+                >
+                  {service.portfolioLink.label}
+                </Link>
+              </section>
+            )}
           </div>
 
           {/* Immagine hero principale a destra */}
@@ -160,44 +173,6 @@ function ServiceDetailPage() {
             </div>
           </div>
         </header>
-
-        {/* ==========================
-            4. Carosello immagini del servizio
-           ========================== */}
-        {serviceGalleryImages.length > 0 && (
-          <section className="mb-5">
-            <h2 className="h4 fw-bold mb-3">
-              Alcuni scatti dal servizio {service.menuLabel}
-            </h2>
-
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              navigation
-              loop
-              autoplay={{ delay: 4000, disableOnInteraction: false }}
-              spaceBetween={16}
-              slidesPerView={1}
-              breakpoints={{
-                768: { slidesPerView: 2 },
-                992: { slidesPerView: 3 },
-              }}
-              className="service-gallery-swiper"
-            >
-              {serviceGalleryImages.map((imgPath, index) => (
-                <SwiperSlide key={imgPath + index}>
-                  <div className="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
-                    <img
-                      src={imgPath}
-                      alt={`${service.menuLabel} ${index + 1}`}
-                      className="w-100 h-100"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </section>
-        )}
 
         {/* ==========================
             3. Testo di dettaglio + CTA laterale
@@ -236,6 +211,44 @@ function ServiceDetailPage() {
             </div>
           </div>
         </section>
+
+        {/* ==========================
+            4. Carosello immagini del servizio
+           ========================== */}
+        {serviceGalleryImages.length > 0 && (
+          <section className="mb-5">
+            <h2 className="h4 fw-bold mb-3">
+              Alcuni scatti dal servizio {service.menuLabel}
+            </h2>
+
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              navigation
+              loop
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              spaceBetween={16}
+              slidesPerView={1}
+              breakpoints={{
+                768: { slidesPerView: 2 },
+                992: { slidesPerView: 3 },
+              }}
+              className="service-gallery-swiper"
+            >
+              {serviceGalleryImages.map((imgPath, index) => (
+                <SwiperSlide key={imgPath + index}>
+                  <div className="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+                    <img
+                      src={imgPath}
+                      alt={`${service.menuLabel} ${index + 1}`}
+                      className="w-100 h-100"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </section>
+        )}       
 
         {/* ==========================
             6. Pacchetti / promozioni (card)
@@ -377,8 +390,8 @@ function ServiceDetailPage() {
         )}
 
         {/* ==========================
-            9. Pulsante verso Portfolio
-           ========================== */}
+        9. Pulsante verso Portfolio
+          ========================== */}
         {service.portfolioLink && (
           <section className="mb-5 text-center">
             <Link
