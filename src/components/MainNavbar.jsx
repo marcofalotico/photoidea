@@ -1,22 +1,55 @@
 // src/components/MainNavbar.jsx
-// Navbar principale con Bootstrap.
-// Qui usiamo Link di react-router-dom per evitare ricariche della pagina.
+// Navbar con:
+// - background che cambia quando scrolli
+// - hamburger che si richiude al click su un link
+// - bottone "Chiedi informazioni" che porta a /contatti
 
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 function MainNavbar() {
+  // Stato locale: true se abbiamo scrollato oltre una certa soglia
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    // Handler chiamato ad ogni scroll
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    // Registriamo il listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Chiamiamo subito per impostare lo stato "giusto" in base alla posizione iniziale
+    handleScroll();
+
+    // Cleanup: rimuoviamo il listener quando il componente viene smontato
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Funzione che richiude il menu su mobile rimuovendo la classe "show"
+  const handleNavItemClick = () => {
+    const navbarCollapse = document.getElementById("mainNavbar");
+    if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+      navbarCollapse.classList.remove("show");
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg bg-light border-bottom">
+    <nav
+      className={
+        "navbar navbar-expand-lg navbar-light border-bottom navbar-main " +
+        (scrolled ? "navbar-main-scrolled" : "")
+      }
+    >
       <div className="container">
-        {/* Link al path "/" che funge da logo/testo brand */}
+        {/* Logo / brand */}
         <Link className="navbar-brand fw-bold" to="/">
-          <img src="/images/logo/logo.webp" alt="logo-photoidea" />
+          <img src="/images/logo/logo.webp" alt="PhotoIdea" />
         </Link>
 
-        {/* Bottone hamburger per mobile */}
-        {/* Gli attributi data-bs-* dicono a Bootstrap di usare il plugin "Collapse"
-            per mostrare/nascondere il blocco con id="mainNavbar". */}
+        {/* Bottone hamburger */}
         <button
           className="navbar-toggler"
           type="button"
@@ -26,46 +59,75 @@ function MainNavbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon" />
+          <span className="navbar-toggler-icon"></span>
         </button>
 
+        {/* Contenuto collassabile */}
         <div className="collapse navbar-collapse" id="mainNavbar">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            {/* NavLink permette di avere una classe "active" automatica
-                quando il path corrente corrisponde. */}
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {/* Servizi */}
             <li className="nav-item">
-              <NavLink className="nav-link" to="/servizi">
+              <NavLink
+                to="/servizi"
+                className={({ isActive }) =>
+                  "nav-link text-uppercase small " +
+                  (isActive ? "active" : "")
+                }
+                onClick={handleNavItemClick}
+              >
                 Servizi
               </NavLink>
             </li>
 
+            {/* Galleria clienti */}
             <li className="nav-item">
-                <NavLink className="nav-link" to="/galleria-clienti">
-                    Galleria clienti
-                </NavLink>
+              <NavLink
+                to="/galleria-clienti"
+                className={({ isActive }) =>
+                  "nav-link text-uppercase small " +
+                  (isActive ? "active" : "")
+                }
+                onClick={handleNavItemClick}
+              >
+                Galleria clienti
+              </NavLink>
             </li>
 
+            {/* Portfolio */}
             <li className="nav-item">
-              <NavLink className="nav-link" to="/portfolio">
+              <NavLink
+                to="/portfolio"
+                className={({ isActive }) =>
+                  "nav-link text-uppercase small " +
+                  (isActive ? "active" : "")
+                }
+                onClick={handleNavItemClick}
+              >
                 Portfolio
               </NavLink>
             </li>
 
+            {/* Blog */}
             <li className="nav-item">
-              <NavLink className="nav-link" to="/blog">
+              <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  "nav-link text-uppercase small " +
+                  (isActive ? "active" : "")
+                }
+                onClick={handleNavItemClick}
+              >
                 Blog
               </NavLink>
             </li>
-
-            {/* <li className="nav-item">
-              <NavLink className="nav-link" to="/contatti">
-                Contatti
-              </NavLink>
-            </li> */}
           </ul>
 
-          {/* CTA per "Chiedi informazioni" stile bottone */}
-          <Link className="btn btn-outline-dark ms-lg-3" to="/contatti">
+          {/* Bottone CTA: anche lui richiude il menu su mobile */}
+          <Link
+            to="/contatti"
+            className="btn btn-outline-dark text-uppercase small ms-lg-3"
+            onClick={handleNavItemClick}
+          >
             Chiedi informazioni
           </Link>
         </div>

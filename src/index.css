@@ -40,9 +40,13 @@ body {
   color: var(--pi-accent);
 }
 
-/* Bottoni */
-.btn-dark,
-.btn-hero-cta {
+.navbar-brand img {
+  height: 32px;
+  width: auto;
+}
+
+/* Bottoni: stile generale per i bottoni scuri classici */
+.btn-dark {
   background-color: var(--pi-accent);
   border-color: var(--pi-accent-dark);
   color: #fff;
@@ -52,51 +56,10 @@ body {
   padding: 0.7rem 1.6rem;
 }
 
-.btn-dark:hover,
-.btn-hero-cta:hover {
+.btn-dark:hover {
   background-color: var(--pi-accent-dark);
   border-color: var(--pi-accent-dark);
   color: #fff;
-}
-
-/* Hero */
-.hero-section {
-  position: relative;
-  height: 80vh;
-  min-height: 500px;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.5)
-  );
-}
-
-.hero-text {
-  max-width: 640px;
-  padding: 0 1.5rem;
-}
-
-.hero-title {
-  font-family: "Playfair Display", "Times New Roman", serif;
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 600;
-}
-
-.hero-subtitle {
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
 }
 
 /* Sezioni */
@@ -124,4 +87,140 @@ section {
 /* Testimonials */
 section:nth-of-type(odd) {
   background-color: var(--pi-bg);
+}
+
+/* Navbar base */
+.navbar-main {
+  background-color: var(--pi-bg-light);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Quando l'utente scrolla oltre 50px */
+.navbar-main.navbar-main-scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ===========================
+   HERO HOME
+   =========================== */
+
+/* Contenitore principale della hero */
+.hero-section {
+  position: relative;
+  min-height: 80vh; /* hero alta almeno 80% viewport */
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Lo slider deve occupare tutta l'altezza disponibile della hero */
+.hero-swiper {
+  height: 100%;
+}
+
+/* Ogni slide occupa tutta l'altezza della hero */
+.hero-slide {
+  height: 100%;
+}
+
+/* L'immagine riempie completamente lo spazio e viene tagliata (crop) */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay con testo centrato sopra l'immagine */
+.hero-overlay {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  z-index: 2;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Effetto "velo" scuro sopra l'immagine, ma sotto il contenuto testo */
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* sfondo scuro con gradiente per migliorare la leggibilità del testo */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+/* Box del testo: leggera card semi-trasparente */
+.hero-text {
+  max-width: 720px;
+  background: rgba(0, 0, 0, 0.35); /* opacità per non appesantire troppo */
+  border-radius: 10px;
+  padding: 1.75rem 2.5rem;
+}
+
+/* Eyebrow (piccolo testo sopra il titolo) */
+.hero-eyebrow {
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Titolo principale */
+.hero-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 2.6rem;
+  letter-spacing: 0.03em;
+}
+
+/* Sottotitolo */
+.hero-subtitle {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1rem;
+}
+
+/* versione più forte: sovrascrive Bootstrap .btn */
+.btn.btn-hero-cta {
+  padding: 0.6rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.btn.btn-hero-cta:hover {
+  background-color: transparent;
+  border-color: var(--pi-accent);
+  color: var(--pi-accent);
+}
+
+/* ---------------------------
+   Responsive tweak per mobile
+   --------------------------- */
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 70vh; /* un po' più alta su mobile */
+  }
+
+  .hero-text {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn-hero-cta {
+    font-size: 0.8rem;
+  }
 }

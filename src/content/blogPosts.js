@@ -11,7 +11,7 @@ export const blogPosts = [
     slug: "matrimonio-rossella-simone-tenuta-carretta-piobesi-alba",
     date: "2024-09-21",
     category: "Matrimonio",
-    coverImage: "//images/blog/rossella-simone-tenuta-carretta-cover.webp",
+    coverImage: "/images/blog/rossella-simone-tenuta-carretta-cover.webp",
     excerpt: `
       Domenica scorsa ho avuto il piacere di fotografare il matrimonio di Rossella e Simone, una giornata indimenticabile che si è svolta nella splendida cornice della Tenuta Carretta, a Piobesi d’Alba, in provincia di Cuneo.
     `,

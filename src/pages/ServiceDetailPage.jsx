@@ -1,39 +1,43 @@
 // src/pages/ServiceDetailPage.jsx
-// Pagina di dettaglio di un singolo servizio.
-// - Legge lo slug dall'URL tramite useParams (React Router)
-// - Trova il servizio corrispondente nell'array "services"
-// - Usa Redux per salvare nel global state quale servizio è selezionato
-//   (useDispatch + action setSelectedService)
+// Pagina di dettaglio di un singolo servizio (es. /servizi/matrimonio)
+//
+// Concetti chiave:
+// - useParams: per leggere lo "slug" dall'URL
+// - Redux: per salvare il servizio selezionato nel form contatti (evitando prop drilling)
+// - useNavigate: per spostarsi programmaticamente verso /contatti
 
-import React, { useEffect } from "react"; // useEffect per l'effetto al mount
-import { useParams } from "react-router-dom"; // per leggere :slug dall'URL
-import { useDispatch } from "react-redux"; // per dispatchare azioni Redux
+import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { services } from "../content/services.js";
-import { setSelectedService } from "../redux/actions.js"; // action creator Redux
+import { portfolioImages } from "../content/mediaPaths.js";
+import { setContactService } from "../redux/actions.js";
 
 function ServiceDetailPage() {
-  // [Router] useParams legge i parametri dinamici della rotta (es. /servizi/:slug).
-  // Ritorna un oggetto { slug: "valore" }.
+  // useParams ci restituisce i parametri dinamici dell'URL.
+  // Nel route abbiamo definito qualcosa tipo "/servizi/:slug".
+  // Qui leggiamo quel "slug" per capire quale servizio mostrare.
   const { slug } = useParams();
 
-  // [Redux] useDispatch restituisce la funzione dispatch,
-  // che usiamo per inviare azioni allo store.
+  // Troviamo il servizio corrispondente allo slug
+  const service = services.find((srv) => srv.slug === slug);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // Troviamo il servizio che ha slug uguale a quello dell'URL
-  const service = services.find((s) => s.slug === slug);
+  // Gestore clic sul bottone "Chiedi informazioni su questo servizio"
+  const handleContactClick = () => {
+    if (!service) return;
 
-  // Se il servizio esiste, vogliamo segnare nello store che questo è il servizio selezionato.
-  useEffect(() => {
-    if (service) {
-      // [Redux] dispatch invia l'azione allo store.
-      // setSelectedService è un action creator (restituisce { type, payload }).
-      dispatch(setSelectedService(service.id));
-    }
-  }, [service, dispatch]); // [React] dependencies array: l'effetto si riesegue se cambia service o dispatch
+    // 1) Salviamo in Redux il nome del servizio
+    dispatch(setContactService(service.menuLabel));
+    // 2) Navighiamo a /contatti
+    navigate("/contatti");
+  };
 
-  // Se non troviamo il servizio, mostriamo una pagina 404 "semplice"
   if (!service) {
+    // Caso slug inesistente
     return (
       <section className="py-5">
         <div className="container">
@@ -46,17 +50,36 @@ function ServiceDetailPage() {
     );
   }
 
-  // Se il servizio esiste, mostriamo i dettagli
+  // Recuperiamo eventuali immagini di galleria legate a questo servizio,
+  // usando la chiave definita in services.galleryKey
+  const galleryImages =
+    portfolioImages[service.galleryKey] || [];
+
   return (
     <section className="py-5">
       <div className="container">
-        {/* Hero titolo + immagine */}
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <h1 className="fw-bold mb-3">{service.menuLabel}</h1>
-            <p className="text-muted">{service.shortDescription}</p>
+        {/* Titolo + descrizione breve */}
+        <header className="row g-4 mb-4 align-items-start">
+          <div className="col-md-7">
+            <h1 className="fw-bold mb-3">
+              {service.menuLabel}
+            </h1>
+            <p className="lead text-muted">
+              {service.shortDescription}
+            </p>
+
+            {/* Bottone che porta a Contatti con il servizio precompilato */}
+            <button
+              type="button"
+              className="btn btn-dark mt-3"
+              onClick={handleContactClick}
+            >
+              Chiedi informazioni su {service.menuLabel}
+            </button>
           </div>
-          <div className="col-md-6">
+
+          {/* Immagine hero del servizio */}
+          <div className="col-md-5">
             <div className="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
               <img
                 src={service.heroImage}
@@ -66,30 +89,65 @@ function ServiceDetailPage() {
               />
             </div>
           </div>
-        </div>
+        </header>
 
-        {/* Testo lungo descrittivo */}
-        <div className="row">
+        {/* Testo di dettaglio */}
+        <div className="row g-4">
           <div className="col-md-8">
-            <h2 className="h4 fw-bold mb-3">Il servizio in dettaglio</h2>
-            <p>{service.fullDescription}</p>
+            <h2 className="h4 fw-bold mb-3">
+              Il servizio in dettaglio
+            </h2>
+            <p className="text-muted">
+              {service.fullDescription}
+            </p>
           </div>
 
-          {/* Colonna laterale per CTA / info */}
+          {/* Box laterale con "Vuoi informazioni?" (opzionale) */}
           <div className="col-md-4">
             <div className="border rounded p-3 bg-light">
-              <h3 className="h5 fw-bold mb-2">Vuoi informazioni?</h3>
-              <p className="mb-3">
-                Contattaci per avere un preventivo personalizzato per il servizio{" "}
-                <strong>{service.menuLabel}</strong>.
+              <h3 className="h6 fw-bold mb-2">
+                Vuoi informazioni?
+              </h3>
+              <p className="small text-muted">
+                Contattaci per avere un preventivo personalizzato
+                per il servizio <strong>{service.menuLabel}</strong>.
               </p>
-              {/* Per semplicità, un link alla pagina contatti */}
-              <a href="/contatti" className="btn btn-dark w-100">
-                Vai ai contatti
-              </a>
+              <button
+                type="button"
+                className="btn btn-outline-dark btn-sm"
+                onClick={handleContactClick}
+              >
+                Vai al form contatti
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Galleria immagini (se presenti) */}
+        {galleryImages.length > 0 && (
+          <div className="mt-5">
+            <h2 className="h4 fw-bold mb-3">
+              Alcuni scatti
+            </h2>
+            <div className="row g-3">
+              {galleryImages.map((imgPath, index) => (
+                <div
+                  className="col-sm-6 col-md-4"
+                  key={imgPath + index}
+                >
+                  <div className="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+                    <img
+                      src={imgPath}
+                      alt={`${service.menuLabel} ${index + 1}`}
+                      className="w-100 h-100"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

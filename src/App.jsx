@@ -22,6 +22,7 @@ import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ProtectedGalleryPage from "./pages/ProtectedGalleryPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 // Navbar e Footer come componenti riutilizzabili.
 import MainNavbar from "./components/MainNavbar.jsx";
@@ -46,8 +47,7 @@ function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contatti" element={<ContactPage />} />
-
-            {/* TODO: potremmo aggiungere una rotta 404 per URL non trovati */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
 
