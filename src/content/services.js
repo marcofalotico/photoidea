@@ -77,63 +77,82 @@ export const services = [
     packages: [],
     pricingPackages: [
       {
-        id: "matrimonio-basic",
-        name: "Matrimonio Classic",
+        id: "solo-file",
+        name: "SOLO FILE",
+        priceLabel: "a partire da 1.500 €",
+        shortDescription:
+          "",
+        features: [
+          "Incontro preliminare",
+          "Servizio fotografico",
+          "Consegna file Alta Risoluzione",
+        ],
+        ctaLabel: "Info pacchetto SOLO FILE",
+        ctaSubject: "Info pacchetto SOLO FILE",
+      },
+      {
+        id: "solo-fotolibro",
+        name: "SOLO FOTOLIBRO",
+        priceLabel: "a partire da 800 €",
+        shortDescription:
+          "",
+        features: [
+          "Postproduzione immagini",
+          "Impaginazione grafica",
+          "Stampa fotolibro 30×30 cm",
+          "Custodia/Cofanetto",
+        ],
+        ctaLabel: "Info pacchetto SOLO FOTOLIBRO",
+        ctaSubject: "Info pacchetto SOLO FOTOLIBRO",
+      },
+      {
+        id: "servizio-completo",
+        name: "SERVIZIO COMPLETO",
+        priceLabel: "a partire da 2.200 €",
+        shortDescription:
+          "",
+        features: [
+          "Incontro preliminare",
+          "Servizio fotografico",
+          "Postproduzione immagini",
+          "Impaginazione grafica",
+          "Stampa fotolibro 30×30 cm",
+          "Consegna file Alta Risoluzione",
+        ],
+        ctaLabel: "Info pacchetto SERVIZIO COMPLETO",
+        ctaSubject: "Info pacchetto SERVIZIO COMPLETO",
+      },
+      {
+        id: "solo-video",
+        name: "SOLO VIDEO",
         priceLabel: "a partire da 1.200 €",
         shortDescription:
-          "Copertura fotografica dalla preparazione degli sposi al taglio della torta.",
+          "",
         features: [
-          "2 fotografi professionisti",
-          "Consegna di selezione immagini in alta risoluzione",
-          "Galleria online privata per condividere le foto",
+          "Servizio video girato",
+          "Montaggio 15/20 minuti",
+          "Trailer 1/2 minuti",
+          "Chiavetta USB e custodia personalizzata",
         ],
-        ctaLabel: "Info pacchetto Classic",
-        ctaSubject: "Info pacchetto Matrimonio Classic",
-      },
-      {
-        id: "matrimonio-plus",
-        name: "Matrimonio Plus",
-        priceLabel: "a partire da 1.600 €",
-        shortDescription:
-          "Servizio completo con album fotografico artigianale incluso.",
-        features: [
-          "Tutti i servizi del pacchetto Classic",
-          "Album fotografico 30x30 con cofanetto",
-          "Sessione di coppia pre-wedding inclusa",
-        ],
-        ctaLabel: "Info pacchetto Plus",
-        ctaSubject: "Info pacchetto Matrimonio Plus",
-      },
-      {
-        id: "matrimonio-lux",
-        name: "Matrimonio Lux",
-        priceLabel: "su preventivo",
-        shortDescription:
-          "Per chi desidera un racconto ancora più completo, con servizi foto e video.",
-        features: [
-          "Copertura foto + video con team dedicato",
-          "Album per gli sposi e mini-album per i genitori",
-          "Servizi aggiuntivi personalizzabili (drone, welcome party, day-after…)",
-        ],
-        ctaLabel: "Info pacchetto Lux",
-        ctaSubject: "Info pacchetto Matrimonio Lux",
+        ctaLabel: "Info pacchetto SOLO VIDEO",
+        ctaSubject: "Info pacchetto SOLO VIDEO",
       },
     ],
 
     // 7. Banner per eventuale offerta a tempo limitato
     limitedOffer: {
       enabled: true,
-      title: "Offerta limitata matrimonio 2026",
+      title: "OFFERTA A TEMPO LIMITATO",
       message:
-        "Per le coppie che confermano entro fine mese, upgrade gratuito dall’album Classic all’album Plus.",
+        "Servizio fotografico COMPLETO e servizio VIDEO scontato di 200 euro !!",
       badgeLabel: "Promo",
-      expiryText: "Offerta valida per matrimoni 2025–2026 fino al 31/12.",
+      expiryText: "Offerta valida fino al 31/12/2025.",
     },
 
     // 8. Integrazione al profilo Instagram
     instagram: {
-      username: "photoidea.torino",
-      profileUrl: "https://www.instagram.com/photoidea.torino/",
+      username: "danielfalotico_fotografo",
+      profileUrl: "https://www.instagram.com/danielfalotico_fotografo/",
       // Qui NON mettiamo embed vero (che richiederebbe script esterni),
       // ma una descrizione che poi useremo per mostrare anteprima + link.
       introText:
@@ -315,15 +334,32 @@ Invitiamo te, il tuo compagno e la tua famiglia a partecipare a questa esperienz
     seoSubtitle:
       "Servizio fotografico bambini e smash cake in studio a Torino.",
     shortDescription: `
-      TODO: descrizione breve servizio bambini & smash cake.
+      La fotografia di neonati è un‘esperienza delicata e unica che cattura i primi momenti di vita entro i quindici giorni del bambino.
     `,
     fullDescription: `
-      TODO: testo completo pagina Bambini & Smash Cake.
+      Benvenuti nella magia della fotografia di bambini a Torino
+La fotografia di neonati è un‘esperienza delicata e unica che cattura i primi momenti di vita entro i quindici giorni del bambino. Le pose sono naturali, mirando a riflettere i movimenti spontanei che caratterizzano i primi giorni di vita del piccolo.
+
+Il servizio fotografico sitter è pensato per i bambini che possono già sedersi autonomamente, catturando la loro spontaneità e la loro espressione genuina in momenti di gioia e meraviglia.
+
+Lo smash cake, invece, celebra il primo compleanno del bambino in modo festoso e divertente. Un set allestito a tema e una piccola torta dedicata consentono al bambino di esplorare, giocare e divertirsi liberamente, creando ricordi indelebili per la famiglia.
+
+Con il nostro servizio, avrai la possibilità di scegliere il set preferito e cambiare l’outfit del bambino per ottenere una varietà di scatti unici e memorabili.
+
+Offriamo stampe di alta qualità, fotolibri incantevoli e file ad alta risoluzione delle foto selezionate, per conservare per sempre i momenti più preziosi della tua famiglia.
+
+Prenota oggi stesso un appuntamento e unisciti a noi per progettare insieme i ricordi di questa straordinaria esperienza fotografica. Il sorriso di tuo figlio merita di essere catturato per l’eternità.
     `,
-    heroImage: "/images/services/bambini-smashcake/hero-bambini-001.jpg",
+    heroImage: "/images/services/bambini-smashcake/hero-bambini-001.webp",
     galleryKey: "kidsSmashCake",
     serviceGalleryImages: [
-      "/images/services/bambini-smashcake/hero-bambini-001.jpg",
+      "/images/services/bambini-smashcake/bambini-001.webp",
+      "/images/services/bambini-smashcake/bambini-002.webp",
+      "/images/services/bambini-smashcake/bambini-003.webp",
+      "/images/services/bambini-smashcake/bambini-004.webp",
+      "/images/services/bambini-smashcake/bambini-005.webp",
+      "/images/services/bambini-smashcake/bambini-006.webp",
+      "/images/services/bambini-smashcake/bambini-007.webp",
     ],
     ctaConfig: {
       title: "Vuoi informazioni?",

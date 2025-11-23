@@ -41,7 +41,7 @@ export const portfolioCategories = [
     id: "foto-bambini",
     menuLabel: "Foto bambini",
     slug: "foto-bambini",
-    galleryKey: "kidsMain",
+    galleryKey: "kidsSmashCake",
     description: `
       TODO: breve testo introduttivo per la pagina foto bambini.
     `,

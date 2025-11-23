@@ -28,8 +28,11 @@ export const portfolioImages = {
 
   // Bambini / Smash Cake
   kidsSmashCake: [
-    "/images/portfolio/bambini-smashcake/smashcake-001.jpg",
-    "/images/portfolio/bambini-smashcake/smashcake-002.jpg",
+    "/images/portfolio/bambini-smashcake/bambini-001.webp",
+    "/images/portfolio/bambini-smashcake/bambini-002.webp",
+    "/images/portfolio/bambini-smashcake/bambini-003.webp",
+    "/images/portfolio/bambini-smashcake/bambini-004.webp",
+    "/images/portfolio/bambini-smashcake/bambini-005.webp",
   ],
 
   // Corporate

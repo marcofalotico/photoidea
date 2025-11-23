@@ -38,17 +38,33 @@ Dalla cerimonia emozionante all’aperto, al rinfresco elegante e ai balli sfren
     title:
       "Un’Elegante Favola tra le Colline: Il Matrimonio di Elisa & Alessandro al Podere La Piazza",
     excerpt: `
-      TODO: scrivi tu il riassunto del post.
+      Benvenuti nel cuore delle verdi colline dell’Astigiano, dove l’amore è stato celebrato in un’atmosfera di magia e romanticismo.
     `,
     coverImage:
-      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-podere-la-piazza-cover.jpg",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-podere-la-piazza-cover.webp",
     galleryImages: [
-      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-001.jpg",
-      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-002.jpg",
-      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-003.jpg",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-001.webp",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-002.webp",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-003.webp",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-004.webp",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-005.webp",
+      "/images/blog/elisa-alessandro-podere-la-piazza/elisa-alessandro-006.webp",
     ],
-    content: `
-      TODO: testo completo articolo riscritto.
+    content: `Il matrimonio di Elisa e Alessandro, celebrato il 21 novembre 2023, è stato un evento indimenticabile che ha lasciato un’impronta indelebile nei cuori di tutti coloro che vi hanno partecipato.
+    
+Il suggestivo scenario del Podere La Piazza a Costigliole d’Asti ha fornito lo sfondo perfetto per questo giorno così speciale. Tra i vigneti e le verdi distese di campi, Elisa e Alessandro hanno scambiato i loro voti, suggellando il loro amore in una cerimonia che ha riflettuto la bellezza della natura circostante e l’intensità dei loro sentimenti.
+
+Ma l’amore di Elisa e Alessandro ha abbracciato anche la città, con una toccante cerimonia presso la Parrocchia di Beato Pier Giorgio Frassati di Torino. Qui, circondati dall’affetto dei loro cari, hanno pronunciato il sacro “sì” di fronte a Dio e alla comunità, segnando l’inizio di un viaggio insieme, fatto di gioie, sfide e condivisione.
+
+Le immagini catturate durante questo giorno straordinario raccontano una storia di pura felicità e commozione. Dai sorrisi radiosi degli sposi alle lacrime di gioia degli ospiti, ogni istante è stato intriso di emozioni autentiche e sincere.
+
+Le fotografie del matrimonio, scattate nella chiesa Beato Pier Giorgio Frassati di Torino, sono un tributo alla bellezza della semplicità e alla forza dell’amore. I momenti condivisi, gli sguardi complici e i gesti dolci sono stati catturati per l’eternità, testimonianza tangibile di un legame che crescerà e si rafforzerà nel tempo.
+
+Lasciatevi trasportare in questo viaggio attraverso le emozioni e la bellezza di un matrimonio senza tempo. Le fotografie di Elisa e Alessandro raccontano una storia di amore puro e autentico, unendo le atmosfere incantevoli della campagna astigiana con il calore e la spiritualità della città di Torino.
+
+Che questa storia possa ispirare e portare gioia a coloro che la leggeranno, celebrando l’amore e la bellezza della vita condivisa.
+
+Milena
     `,
     publishedAt: "2024-03-01",
   },
