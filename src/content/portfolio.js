@@ -24,9 +24,7 @@ export const portfolioCategories = [
     menuLabel: "Foto maternità",
     slug: "foto-maternita",
     galleryKey: "maternityMain",
-    description: `
-      TODO: breve testo introduttivo per la pagina foto maternità.
-    `,
+    description: `Benvenuta nel mondo della maternità, un viaggio straordinario fatto di emozioni, trasformazioni e amore incondizionato.`,
   },
   {
     id: "foto-battesimo",
@@ -42,9 +40,7 @@ export const portfolioCategories = [
     menuLabel: "Foto bambini",
     slug: "foto-bambini",
     galleryKey: "kidsSmashCake",
-    description: `
-      TODO: breve testo introduttivo per la pagina foto bambini.
-    `,
+    description: `La fotografia di neonati è un‘esperienza delicata e unica che cattura i primi momenti di vita entro i quindici giorni del bambino. Le pose sono naturali, mirando a riflettere i movimenti spontanei che caratterizzano i primi giorni di vita del piccolo.`,
   },
   {
     id: "foto-corporate",

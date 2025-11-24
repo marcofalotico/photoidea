@@ -69,22 +69,35 @@ Milena
     publishedAt: "2024-03-01",
   },
   {
-    id: "matrimonio",
-    slug: "matrimonio-accademia-scienze-dolce-stil-novo-venaria",
+    id: "bambini-smashcake", // collega questo post al servizio "bambini-smashcake"
+    slug: "bambini-smashcake-tommaso",
     title:
-      "Un Matrimonio Incantevole: Sposi all’Accademia delle Scienze di Torino e Ricevimento al Dolce Stil Novo alla Reggia di Venaria",
-    excerpt: `
-      TODO: scrivi un estratto che riassuma location, atmosfera, stile fotografico.
-    `,
+      "Sguardi incantati e sorrisi eterni: Un tributo all’amore attraverso l’album fotografico",
+    excerpt: `Carissimi Marianna e Giulio, oggi vorrei condividere con voi qualcosa di speciale, qualcosa che ho preparato con amore e cura. Ho creato questo album di fotografie per voi, per celebrare l’infanzia straordinaria del vostro adorabile Tommaso.`,
     coverImage:
-      "/images/blog/accademia-scienze-dolce-stil-novo/accademia-scienze-dolce-stil-novo-cover.jpg",
+      "/images/blog/tommaso/tommaso-cover.webp",
     galleryImages: [
-      "/images/blog/accademia-scienze-dolce-stil-novo/accademia-scienze-001.jpg",
-      "/images/blog/accademia-scienze-dolce-stil-novo/accademia-scienze-002.jpg",
-      "/images/blog/accademia-scienze-dolce-stil-novo/accademia-scienze-003.jpg",
+      "/images/blog/tommaso/tommaso-001.webp",
+      "/images/blog/tommaso/tommaso-002.webp",
+      "/images/blog/tommaso/tommaso-003.webp",
     ],
-    content: `
-      TODO: articolo completo riscritto da te.
+    content: `Carissimi Marianna e Giulio,
+
+Oggi vorrei condividere con voi qualcosa di speciale, qualcosa che ho preparato con amore e cura. Ho creato questo album di fotografie per voi, per celebrare l’infanzia straordinaria del vostro adorabile Tommaso.
+
+Ogni pagina di questo album racchiude un momento prezioso, un sorriso contagioso, un gesto affettuoso e tanti ricordi che resteranno incisi nel tempo. Attraverso le fotografie, ho cercato di catturare l’essenza pura e autentica del vostro bambino, i suoi progressi, la sua gioia e il suo amore per la vita.
+
+Guardando queste immagini, spero che possiate rivivere quei momenti magici che avete condiviso con il vostro piccolo tesoro. Vorrei che quest’album vi ricordi sempre quanto siete genitori meravigliosi, quanto amore avete donato e quanta felicità avete portato nella vita del piccolo Tommaso.
+
+Voglio ringraziarvi per avermi dato l’opportunità di creare questo regalo speciale per voi. È stato un vero onore partecipare a questa esperienza e sono grata per la fiducia che avete riposto in me. Spero che questo album vi riempia di gioia ogni volta che lo sfoglierete e che sia un tesoro che potrete condividere con il vostro bambino mentre cresce.
+
+Infine, vorrei congratularmi con voi perché siete genitori straordinari. Il vostro amore, la dedizione e la vostra forza sono fonte di ispirazione per tutti coloro che vi circondano. Sono felice di far parte della vostra vita e di assistere alla crescita del piccolo Tommaso.
+
+Vi auguro tanta felicità, amore e meravigliosi momenti insieme a vostro figlio. Spero che questa collezione di fotografie sia solo l’inizio di un viaggio pieno di ricordi indimenticabili.
+
+Con affetto,
+
+Zoffreo Milena
     `,
     publishedAt: "2023-07-28",
   },
