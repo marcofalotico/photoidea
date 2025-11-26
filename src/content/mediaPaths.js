@@ -44,6 +44,11 @@ export const portfolioImages = {
   weddingEngagement: [
     "/images/portfolio/prematrimoniale/engagement-001.webp",
     "/images/portfolio/prematrimoniale/engagement-002.webp",
+    "/images/portfolio/prematrimoniale/engagement-003.webp",
+    "/images/portfolio/prematrimoniale/engagement-004.webp",
+    "/images/portfolio/prematrimoniale/engagement-005.webp",
+    "/images/portfolio/prematrimoniale/engagement-006.webp",
+    "/images/portfolio/prematrimoniale/engagement-007.webp",
   ],
 };
 
