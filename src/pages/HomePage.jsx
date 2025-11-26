@@ -16,6 +16,7 @@ import HomeHero from "../components/HomeHero.jsx";
 import ServicesPreview from "../components/ServicesPreview.jsx";
 import BlogPreview from "../components/BlogPreview.jsx";
 import TestimonialsSection from "../components/TestimonialsSection.jsx";
+import GoogleReviewsSection from "../components/GoogleReviewsSection.jsx";
 
 function HomePage() {
   // [Concetto React] Non ci serve stato locale qui: HomePage è solo composizione.
@@ -25,7 +26,8 @@ function HomePage() {
       <HomeHero />
       <ServicesPreview />
       <BlogPreview />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
+      <GoogleReviewsSection />
       {/* In futuro: sezione video, embed Instagram, ecc. */}
     </div>
   );

@@ -277,6 +277,32 @@ section:nth-of-type(odd) {
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
 }
 
+/* Contenitore esterno: nasconde l'overflow orizzontale,
+   così quando le card "entrano" con la translateX non si vede lo scroll */
+.google-reviews-slider {
+  overflow: hidden;
+}
+
+/* Classe che applica l'animazione di ingresso da destra verso sinistra.
+   Viene applicata alla <div class="row"> con key={currentIndex} */
+.google-reviews-slide-enter {
+  animation: googleReviewsSlideIn 0.4s ease-out;
+}
+
+/* Keyframes per lo slide da destra:
+   - all'inizio le card sono leggermente spostate a destra e trasparenti
+   - alla fine sono in posizione normale con opacità piena */
+@keyframes googleReviewsSlideIn {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* un filo di spazio tra lista e bottone su schermi piccoli */
 @media (max-width: 575.98px) {
   .pricing-card {
