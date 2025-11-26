@@ -27,6 +27,8 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 // Navbar e Footer come componenti riutilizzabili.
 import MainNavbar from "./components/MainNavbar.jsx";
 import MainFooter from "./components/MainFooter.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import ScrollToTopButton from "./components/ScrollToTopButton.jsx";
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
     // per permettere l'uso di <Link>, <Route>, ecc.
     <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
+        <ScrollToTop />
         <MainNavbar />
         <main className="flex-grow-1">
           <Routes>
@@ -50,7 +53,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
-
+        <ScrollToTopButton />
         <MainFooter />
       </div>
     </BrowserRouter>

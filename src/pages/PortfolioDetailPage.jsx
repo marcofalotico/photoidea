@@ -1,41 +1,33 @@
 // src/pages/PortfolioDetailPage.jsx
-// Pagina che mostra una galleria di immagini con:
-// - slider Swiper in alto
-// - griglia di thumbnail
-// - lightbox a schermo intero con "yet-another-react-lightbox"
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { portfolioCategories } from "../content/portfolio.js";
 import { portfolioImages } from "../content/mediaPaths.js";
 
-// Slider Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-
-// Lightbox compatibile con React 18/19
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 function PortfolioDetailPage() {
   const { slug } = useParams();
 
-  // Trovo la categoria a partire dallo slug
   const category = portfolioCategories.find((cat) => cat.slug === slug);
 
-  // Stato locale per aprire/chiudere la lightbox
   const [isOpen, setIsOpen] = useState(false);
-  // Indice dell'immagine attualmente selezionata
   const [photoIndex, setPhotoIndex] = useState(0);
+
+  // Scroll to top quando apro una nuova pagina
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
 
   if (!category) {
     return (
       <section className="py-5">
         <div className="container">
           <h1 className="fw-bold">Categoria portfolio non trovata</h1>
-          <p className="text-muted">
-            La categoria che stai cercando non esiste o è stata rimossa.
-          </p>
+          <p className="text-muted">La categoria che cerchi non esiste.</p>
         </div>
       </section>
     );
@@ -44,85 +36,70 @@ function PortfolioDetailPage() {
   const images = portfolioImages[category.galleryKey] || [];
 
   const openLightboxAt = (index) => {
-    setPhotoIndex(index); // setto l'indice dell'immagine cliccata
-    setIsOpen(true);      // apro la lightbox
-  };
-
-  const closeLightbox = () => {
-    setIsOpen(false);
+    setPhotoIndex(index);
+    setIsOpen(true);
   };
 
   return (
-    <section className="py-5">
+    <section className="py-5 bg-light">
       <div className="container">
+
+        {/* TITLE */}
         <header className="mb-4 text-center">
           <h1 className="fw-bold">{category.menuLabel}</h1>
           <p className="text-muted">{category.description}</p>
         </header>
 
-        {/* Slider principale */}
-        {images.length > 0 && (
-          <div className="mb-4">
-            <Swiper loop={true} slidesPerView={1} className="portfolio-swiper">
-              {images.map((imgPath, index) => (
-                <SwiperSlide key={imgPath + index}>
-                  <div
-                    className="ratio ratio-16x9 rounded overflow-hidden shadow-sm portfolio-slide"
-                    style={{ cursor: "pointer" }}
-                    // Cliccando sullo slide apro la lightbox a quell'indice
-                    onClick={() => openLightboxAt(index)}
-                  >
-                    <img
-                      src={imgPath}
-                      alt={`${category.menuLabel} ${index + 1}`}
-                      className="w-100 h-100"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        )}
-
-        {/* Griglia di thumbnail */}
-        <div className="row g-3">
-          {images.length === 0 && (
-            <p className="text-muted">
-              Nessuna immagine è ancora stata aggiunta per questa categoria.
-            </p>
-          )}
-
-          {images.map((imgPath, index) => (
-            <div className="col-sm-6 col-md-4" key={imgPath + index}>
-              <div
-                className="ratio ratio-4x3 rounded overflow-hidden shadow-sm portfolio-thumb"
-                style={{ cursor: "pointer" }}
-                onClick={() => openLightboxAt(index)}
-              >
-                <img
-                  src={imgPath}
-                  alt={`${category.menuLabel} ${index + 1}`}
-                  className="w-100 h-100"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
+        {/* PINTEREST GRID */}
+        <div
+          className="masonry"
+          style={{
+            columnCount: 3,
+            columnGap: "1rem",
+          }}
+        >
+          {images.map((src, index) => (
+            <div
+              key={src}
+              style={{
+                breakInside: "avoid",
+                marginBottom: "1rem",
+                cursor: "pointer",
+              }}
+              onClick={() => openLightboxAt(index)}
+            >
+              <img
+                src={src}
+                alt={`${category.menuLabel} ${index + 1}`}
+                style={{
+                  width: "100%",
+                  borderRadius: "12px",
+                  display: "block",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+                }}
+              />
             </div>
           ))}
         </div>
+
+        {/* RESPONSIVE BREAKPOINTS */}
+        <style>{`
+          @media (max-width: 992px) {
+            .masonry { column-count: 2; }
+          }
+          @media (max-width: 576px) {
+            .masonry { column-count: 1; }
+          }
+        `}</style>
       </div>
 
-      {/* Lightbox */}
+      {/* LIGHTBOX */}
       {isOpen && images.length > 0 && (
         <Lightbox
-          // open/close controllati da stato React
           open={isOpen}
-          close={closeLightbox}
-          // slides è un array di oggetti { src: "path/dell/immagine" }
+          close={() => setIsOpen(false)}
           slides={images.map((src) => ({ src }))}
-          // index è l'immagine attualmente attiva
           index={photoIndex}
-          // on.view viene chiamato quando l'utente cambia slide (freccia, swipe, ecc.)
           on={{
             view: ({ index }) => setPhotoIndex(index),
           }}
